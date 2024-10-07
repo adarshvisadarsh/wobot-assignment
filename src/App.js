@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchCameras, updateCameraStatus } from './Helper/api';
+import logo from './assets/BrandLogo.jpg'
+import status from './assets/Vector (2).png'
 import './App.css';
 
 const App = () => {
@@ -60,13 +62,16 @@ const App = () => {
   const locations = [...new Set(cameras.map(cam => cam.location))];
   const statuses = [...new Set(cameras.map(cam => cam.status))];
 
+
   return (
     <div className="container">
       <header className="header">
+     
       <div className='inHeader'>
         <h2>Cameras</h2>
         <span>Manage your cameras here</span>
         </div>
+        <img src={logo} alt="logo" className="logo" />
         <input
           type="text"
           placeholder="Search cameras"
@@ -95,7 +100,7 @@ const App = () => {
           onChange={(e) => setStatusFilter(e.target.value)}
           className="filter-dropdown"
         >
-          <option value="">Status</option>
+          <option value="">status</option>
           {statuses.map((status, index) => (
             <option key={index} value={status}>
               {status}
